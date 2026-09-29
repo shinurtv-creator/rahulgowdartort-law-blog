@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>When garbage becomes a problem: the issue we ignore every day | Rahul Gowda R</title>
+<meta name="description" content="A first-year law student looks at uncollected garbage through the lens of nuisance in tort law, and asks who should carry the responsibility.">
+<meta name="author" content="Rahul Gowda R">
+<meta property="og:type" content="article">
+<meta property="og:title" content="When garbage becomes a problem: the issue we ignore every day">
+<meta property="og:description" content="Garbage on a road is not just dirty. Through tort law, it can be a nuisance. Who is responsible?">
+<meta name="theme-color" content="#F2F4F0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131A17" media="(prefers-color-scheme: dark)">
+<style>
+  :root {
+    --bg: #F2F4F0;
+    --surface: #E6EAE3;
+    --ink: #17201C;
+    --muted: #55625B;
+    --accent: #1D5C4D;
+    --accent-ink: #FFFFFF;
+    --rule: #B7C0B8;
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --sans: "Avenir Next", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  :root[data-theme="dark"] {
+    --bg: #131A17;
+    --surface: #1C2621;
+    --ink: #E8EDE9;
+    --muted: #9AA8A0;
+    --accent: #6FCFB4;
+    --accent-ink: #0E1512;
+    --rule: #34423B;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #131A17;
+      --surface: #1C2621;
+      --ink: #E8EDE9;
+      --muted: #9AA8A0;
+      --accent: #6FCFB4;
+      --accent-ink: #0E1512;
+      --rule: #34423B;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 1.1875rem;
+    line-height: 1.7;
+    text-rendering: optimizeLegibility;
+  }
+
+  .wrap { width: min(100% - 2.5rem, 40rem); margin-inline: auto; }
+
+  /* top bar */
+  .bar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-block: 1.1rem;
+    font-family: var(--sans); font-size: .9rem; color: var(--muted);
+  }
+  .bar strong { color: var(--ink); font-weight: 600; }
+  .toggle {
+    font: inherit; color: var(--ink); background: transparent;
+    border: 1px solid var(--rule); border-radius: 999px;
+    padding: .35rem .85rem; cursor: pointer;
+  }
+  .toggle:hover { border-color: var(--accent); }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+  /* hero */
+  header.hero { padding-block: clamp(2.5rem, 8vw, 5.5rem) 0; }
+  h1 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(2.25rem, 7.2vw, 3.9rem);
+    line-height: 1.06;
+    letter-spacing: -.02em;
+    margin: 0 0 1.5rem;
+    text-wrap: balance;
+  }
+  .byline { font-family: var(--sans); font-size: .98rem; color: var(--muted); margin: 0; }
+  .byline b { color: var(--ink); font-weight: 600; }
+
+  /* road-marking divider: the one signature element */
+  .road {
+    height: 0; border: 0; margin: 2.25rem 0 0;
+    border-top: 4px dashed var(--accent);
+    opacity: .85;
+  }
+
+  /* article */
+  article { padding-block: 2.5rem 1rem; }
+  article p { margin: 0 0 1.35rem; }
+  article p.lead { font-size: 1.32rem; line-height: 1.6; }
+  h2 {
+    font-family: var(--sans);
+    font-size: 1.4rem; line-height: 1.25; font-weight: 700;
+    letter-spacing: -.01em;
+    margin: 3rem 0 1rem;
+    text-wrap: balance;
+  }
+
+  .aside {
+    background: var(--surface);
+    border-left: 4px solid var(--accent);
+    padding: 1rem 1.25rem;
+    margin: 1.75rem 0;
+    font-size: 1.05rem; line-height: 1.6;
+    border-radius: 0 6px 6px 0;
+  }
+  .aside p { margin: 0; }
+  .aside .tag { display: block; font-family: var(--sans); font-size: .85rem; font-weight: 600; color: var(--accent); margin-bottom: .3rem; }
+
+  blockquote.closing {
+    margin: 2.5rem 0 0; padding: 0;
+    font-size: clamp(1.4rem, 4.2vw, 1.85rem);
+    line-height: 1.35; font-weight: 700; letter-spacing: -.01em;
+    text-wrap: balance;
+  }
+  blockquote.closing::before {
+    content: ""; display: block; width: 3.5rem; margin-bottom: 1.25rem;
+    border-top: 4px solid var(--accent);
+  }
+
+  /* references */
+  section.refs { border-top: 1px solid var(--rule); margin-top: 3.5rem; padding-top: 1.75rem; }
+  section.refs h2 { margin-top: 0; font-size: 1.15rem; }
+  section.refs ol { margin: 0; padding-left: 1.4rem; font-size: 1rem; line-height: 1.6; color: var(--muted); }
+  section.refs li { margin-bottom: .55rem; padding-left: .25rem; }
+
+  footer { padding-block: 2rem 3rem; font-family: var(--sans); font-size: .9rem; color: var(--muted); }
+  footer p { margin: 0; }
+
+  @media (max-width: 480px) {
+    body { font-size: 1.125rem; }
+    .aside { padding: .9rem 1rem; }
+  }
+
+  @media print {
+    :root { --bg: #fff; --ink: #000; --muted: #333; --surface: #f2f2f2; --accent: #000; --rule: #999; }
+    .toggle, .road { display: none; }
+    body { font-size: 12pt; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="bar">
+    <span><strong>Rahul Gowda R</strong></span>
+    <button class="toggle" id="theme" type="button" aria-label="Switch between light and dark mode">Dark mode</button>
+  </div>
+
+  <header class="hero">
+    <h1>When garbage becomes a problem: the issue we ignore every day</h1>
+    <p class="byline">By <b>Rahul Gowda R</b>, first-year law student</p>
+    <hr class="road">
+  </header>
+
+  <main>
+  <article>
+    <p class="lead">Every morning I see it. A pile of trash next to a road. A plastic bag stuck in a drain. A public bin overflowing onto the sidewalk. Sometimes the smell reaches us before we even see the waste.</p>
+
+    <p>Most of us just walk by.</p>
+
+    <p>After learning about tort law I started seeing this issue in a different way. What if that pile of garbage is not a problem of cleanliness? What if it is a nuisance? Even more importantly, who is responsible for the harm it causes?</p>
+
+    <h2>Garbage is not just dirty</h2>
+
+    <p>When we hear the word “nuisance” we usually think of something loud, like sounds, smoke, bad smells or something blocking our way. In tort law however, nuisance has a serious legal meaning.</p>
+
+    <p>A nuisance can involve an interference with the use or enjoyment of land in the case of private nuisance, while public nuisance involves interference with rights or interests that belong to the public.</p>
+
+    <p>Garbage can easily fit into this category. Imagine living next to an open dump. The smell comes into your home every day. Flies and stray animals gather around it. During rain, waste flows into the street and drains. People cannot walk comfortably on the sidewalk.</p>
+
+    <p>At some point it stops being just “dirty.” It becomes an interference with life.</p>
+
+    <h2>The law already considers nuisance</h2>
+
+    <p>India’s current criminal law also gives us a useful connection.</p>
+
+    <div class="aside">
+      <p><span class="tag">Section 270, Bharatiya Nyaya Sanhita, 2023</span>
+      Public nuisance includes an act or illegal omission that causes injury, danger or annoyance to the public or to people living nearby, or to those using a public right. This rule has been in effect since 1 July 2024.</p>
+    </div>
+
+    <p>This is important because garbage left on a road is rarely a problem for just one person. It can affect pedestrians, shopkeepers, residents, drivers and sanitation workers at the same time.</p>
+
+    <p>A blocked sidewalk is not an inconvenience for one person. It can interfere with a right to walk. That is where an everyday pile of garbage starts to look very different from a legal perspective.</p>
+
+    <h2>Who actually caused the problem?</h2>
+
+    <p>This is where the issue gets complicated. Sometimes the person responsible is clear. A person throws a bag on the side of the road. Another adds a food wrapper. Someone else leaves construction waste there. Within days the same spot becomes a dump.</p>
+
+    <p>What happens when garbage is collected but not removed? What about a system that doesn’t work properly? What about waste that is moved without care?</p>
+
+    <p>These questions matter because tort law is ultimately about harm and responsibility.</p>
+
+    <p>The Solid Waste Management Rules, 2016 place duties on local authorities regarding the collection, sorting, transportation, processing and disposal of municipal solid waste. Open dumping can also create public health issues.</p>
+
+    <p>So the problem cannot always be reduced to “people should stop littering.” There is a system behind every pile of garbage.</p>
+
+    <h2>Bengaluru shows how real the problem is</h2>
+
+    <p>This is not a classroom topic. Bengaluru has repeatedly had arguments about where and how the city’s waste should be handled.</p>
+
+    <p>In February 2026 residents near the Bellahalli waste-processing area blocked more than 150 garbage trucks, stopping waste disposal from parts of the city. Reports said Bengaluru produces about 6,000 tonnes of waste each day.</p>
+
+    <p>That event showed me something: garbage does not disappear when it leaves our doorstep. It simply moves elsewhere.</p>
+
+    <p>One neighborhood may want the garbage removed while another may not want to become the dumping ground. So the real question is not just “Where should we put the garbage?” It is: Who should take the consequences of the waste that an entire city produces?</p>
+
+    <h2>When nuisance becomes a problem</h2>
+
+    <p>The impact of unmanaged garbage is more than just an unpleasant smell. It can block roads and sidewalks. It can attract animals and insects. It can pollute the surroundings. It can make public spaces hard to use. When waste gets into drainage systems, a small issue can become a much bigger one during heavy rains.</p>
+
+    <p>This is why nuisance law is interesting. It takes something ordinary and asks a legal question: When does an inconvenience become legally unreasonable? That question has no single answer for every situation. Courts usually have to look at the nature, extent and circumstances of the interference.</p>
+
+    <h2>The responsibility can’t belong to one side</h2>
+
+    <p>I also think it would be unfair to put all the blame on municipal authorities. Citizens are part of the problem too. If waste is not sorted, if garbage is thrown on the road or if people deliberately create dump sites, the waste system becomes harder to manage.</p>
+
+    <p>At the same time, citizens cannot be expected to solve a city’s waste problem on their own. Responsibility has to work both ways.</p>
+
+    <p>Citizens must throw away waste properly. Authorities must manage the waste properly. That sounds simple. In practice it is surprisingly difficult.</p>
+
+    <h2>What does tort law teach us here?</h2>
+
+    <p>For me the interesting thing is that tort law is not only about paying after something goes wrong. It is also about seeing interference and asking who should take responsibility for harm.</p>
+
+    <p>Garbage makes this visible. A person may never think, “I am creating a nuisance.” They just throw a packet on the road. A municipal authority may not think, “We are interfering with someone’s enjoyment of property.” It may simply fail to clean a dump in time.</p>
+
+    <p>The person living next to that garbage does not experience it as a legal theory. They feel the smell. They feel the inconvenience. They feel the loss of a public space. That is where law meets life.</p>
+
+    <h2>The question I keep thinking about</h2>
+
+    <p>As a first-year law student I am starting to realize that some of the interesting legal problems are hiding in things we have gotten used to.</p>
+
+    <p>We have become so used to seeing garbage on the road that we sometimes stop questioning it. Maybe that is exactly when the law should make us stop.</p>
+
+    <p>If garbage can affect our health, property, movement and enjoyment of spaces, at what point should society stop calling it just “waste” and start calling it a legal nuisance?</p>
+
+    <blockquote class="closing">Maybe the biggest nuisance is not the garbage itself. Maybe it is the idea that because we see it every day we have to accept it.</blockquote>
+
+    <section class="refs" aria-labelledby="refs-title">
+      <h2 id="refs-title">References</h2>
+      <ol>
+        <li>Bharatiya Nyaya Sanhita, 2023. Section 270 Public Nuisance.</li>
+        <li>Solid Waste Management Rules, 2016.</li>
+        <li>Central Pollution Control Board, materials relating to solid waste management.</li>
+        <li>Indian Express, reporting on the February 2026 Bellahalli waste-disposal disruption, in Bengaluru.</li>
+      </ol>
+    </section>
+  </article>
+  </main>
+
+  <footer>
+    <p>Written by Rahul Gowda R for a torts assignment.</p>
+  </footer>
+</div>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var btn = document.getElementById('theme');
+    var mq = window.matchMedia('(prefers-color-scheme: dark)');
+    function current() {
+      var t = root.getAttribute('data-theme');
+      return t ? t : (mq.matches ? 'dark' : 'light');
+    }
+    function label() { btn.textContent = current() === 'dark' ? 'Light mode' : 'Dark mode'; }
+    btn.addEventListener('click', function () {
+      root.setAttribute('data-theme', current() === 'dark' ? 'light' : 'dark');
+      label();
+    });
+    label();
+  })();
+</script>
+</body>
+</html>
